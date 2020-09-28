@@ -24,10 +24,33 @@ export class ProductListContainer implements OnInit {
   }
 
   /**
+   * add product call
+   * @param productDetail product detail
+   */
+  public addProject(productDetail: Product): void {
+    this.productService.addProduct(productDetail).subscribe(() => {
+      alert('Added...!!!');
+      this.getProducts();
+    }
+    );
+  }
+
+  /**
+   * remove product
+   * @param id product id
+   */
+  public removeProduct(id: number): void {
+    this.productService.removeProduct(id).subscribe(() => {
+      alert('Deleted...!!!');
+      this.getProducts();
+    }
+    );
+  }
+
+  /**
    * get products
    */
   private getProducts(): void {
     this.products$ = this.productService.getProducts();
   }
-
 }

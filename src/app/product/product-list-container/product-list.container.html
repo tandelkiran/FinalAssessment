@@ -1,3 +1,5 @@
 <product-list-presentation-ui 
-[productList]="products$ | async">
+[productList]="products$ | async"
+(addProject)="addProject($event)"
+(sendId)="removeProduct($event)">
 </product-list-presentation-ui>

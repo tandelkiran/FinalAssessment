@@ -2,14 +2,12 @@
 <div class="card m-3">
     <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
     <div class="card-body">
-        <form >
-            <!-- [formGroup]="productForm" (ngSubmit)="onSubmit() -->
-            
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
             <!-- name -->
             <div class="form-group">
-                <label>Product Name</label>
+                <label>Image</label>
                 <!-- formControlName="email" -->
-                <input type="text"  class="form-control" />
+                <input type="text" class="form-control" formControlName="image" />
                 <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Email is required</div>
                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -17,9 +15,8 @@
             </div>
             <!-- [formGroup]="productForm" (ngSubmit)="onSubmit() -->
             <div class="form-group">
-                <label>Email</label>
-                <!-- formControlName="email" -->
-                <input type="text"  class="form-control" />
+                <label>Name</label>
+                <input type="text" class="form-control" formControlName="productName" />
                 <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Email is required</div>
                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -27,19 +24,24 @@
             </div>
             <!-- [formGroup]="productForm" (ngSubmit)="onSubmit() -->
             <div class="form-group">
-                <label>Email</label>
-                <!-- formControlName="email" -->
-                <input type="text"  class="form-control" />
+                <label>Description</label>
+                <input type="text" class="form-control" formControlName="description"/>
                 <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Email is required</div>
                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
                 </div> -->
             </div>
-            <!-- [formGroup]="productForm" (ngSubmit)="onSubmit() -->
             <div class="form-group">
-                <label>Email</label>
-                <!-- formControlName="email" -->
-                <input type="text"  class="form-control" />
+                <label>Pice</label>
+                <input type="text" class="form-control" formControlName="price" />
+                <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div> -->
+            </div>
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="text" class="form-control" formControlName="quantity" />
                 <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                     <div *ngIf="f.email.errors.required">Email is required</div>
                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
@@ -47,7 +49,7 @@
             </div>
             
             <div class="text-center">
-                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-primary mr-1">Add</button>
                 <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
             </div>
         </form>

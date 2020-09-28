@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { Product } from '../../models/product';
 import { ProductListPresenter } from '../product-list-presenter/product-list.presenter';
@@ -22,10 +23,25 @@ export class ProductListPresentation implements OnInit {
     return this.products;
   }
 
+  // output event for add product and emit product detail
+  @Output() addProduct: EventEmitter<Product>;
+  // output event for update product and emit product detail
+  @Output() updateProduct: EventEmitter<Product>;
+  // event for send id to delete data
+  @Output() sendId: EventEmitter<number>;
+
+  public reverse: boolean;
+  public fieldName: string;
   // produc list
   private products: Product[];
 
-  constructor(private productListPresenter: ProductListPresenter) { }
+  constructor(private productListPresenter: ProductListPresenter) {
+    this.addProduct = new EventEmitter<Product>();
+    this.updateProduct = new EventEmitter<Product>();
+    this.sendId = new EventEmitter<number>();
+    this.fieldName = 'productName';
+    this.reverse = false;
+  }
 
   public ngOnInit(): void {
   }
@@ -35,7 +51,25 @@ export class ProductListPresentation implements OnInit {
    * @param productDetail productDetail
    */
   public loadProductForm(productDetail: Product) {
-    this.productListPresenter.createProductForm();
+
+    this.productListPresenter.addFormDetails = new Subject<Product>();
+    this.productListPresenter.createProductForm(productDetail);
+
+    this.productListPresenter.addFormDetails.subscribe((formData: Product) => {
+      this.addProduct.emit(formData);
+    });
+  }
+
+  public sortList(fieldName: string) {
+    this.fieldName = fieldName;
+    this.reverse = !this.reverse
+  }
+
+  public removeProduct(id: number) {
+    let confirmation = confirm('Are you sure want to delete ?');
+    if (confirmation) {
+      this.sendId.emit(id);
+    }
   }
 
 }

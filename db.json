@@ -1,11 +1,44 @@
 {
     "products": [
-        {"id":1,
-        "image":"img1",
-        "productName":"product1",
-        "description":"product test",
-        "price": 800,
-        "quantity": 3
-    }
+        {
+            "id": 1,
+            "image": "img1",
+            "productName": "product1",
+            "description": "product test 1",
+            "price": 800,
+            "quantity": 5
+        },
+        {
+            "id": 2,
+            "image": "img2",
+            "productName": "product2",
+            "description": "product test 2",
+            "price": 800,
+            "quantity": 5
+        },
+        {
+            "id": 3,
+            "image": "img3",
+            "productName": "product3",
+            "description": "product test 3",
+            "price": 700,
+            "quantity": 4
+        },
+        {
+            "id": 4,
+            "image": "img4",
+            "productName": "product4",
+            "description": "product test 4",
+            "price": 700,
+            "quantity": 4
+        },
+        {
+            "id": 5,
+            "image": "img5",
+            "productName": "product5",
+            "description": "product test 5",
+            "price": 700,
+            "quantity": 4
+        }
     ]
 }

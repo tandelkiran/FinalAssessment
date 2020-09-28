@@ -8,6 +8,8 @@ import { ProductListContainer } from './product-list-container/product-list.cont
 import { ProductListPresentation } from './product-list-container/product-list-presentation/product-list.presentation';
 import {
   ProductFormPresentation } from './product-list-container/product-list-presentation/product-form-presentation/product-form.presentation';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [ProductListContainer, ProductListPresentation, ProductFormPresentation],
@@ -15,7 +17,10 @@ import {
     CommonModule,
     ProductRoutingModule,
     OverlayModule,
-    PortalModule
+    PortalModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   entryComponents: [ProductFormPresentation]
 })
